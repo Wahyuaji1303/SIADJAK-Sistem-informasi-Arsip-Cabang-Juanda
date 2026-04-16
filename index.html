@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SIADJAK</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<!-- LOGIN -->
+<div id="loginPage" class="login-page">
+  <div class="login-card glass">
+
+    <img src="bpjs ketenagakerjaan.png" class="logo">
+
+    <h3>Sistem Informasi Arsip Cabang Juanda</h3>
+
+    <input type="text" id="username" placeholder="Username / Gmail">
+    <input type="password" id="password" placeholder="Password">
+
+    <button onclick="login()">Login</button>
+  </div>
+</div>
+
+<!-- APP -->
+<div id="app" class="app hidden">
+
+  <!-- SIDEBAR -->
+  <div class="sidebar">
+    <img src="bpjs ketenagakerjaan.png" class="logo-small">
+  
+
+    <ul>
+      <li onclick="showPage('dashboard')">Dashboard</li>
+      <li onclick="showPage('arsip')">Data Arsip</li>
+      <li onclick="showPage('tambah')">Form Tambah Arsip</li>
+      <li onclick="showPage('laman')">Laman Arsip</li>
+      <li onclick="showPage('peminjaman')">Peminjaman</li>
+      <li onclick="showPage('pengguna')">Pengguna</li>
+    </ul>
+  </div>
+
+  <!-- CONTENT -->
+  <div class="content">
+
+    <!-- DASHBOARD -->
+    <div id="dashboard" class="page active center">
+      <div class="ornament"></div>
+
+      <h1>Selamat Datang di Sistem Arsip Digital</h1>
+
+      <img src="bpjs ketenagakerjaan.png" class="logo-dashboard">
+
+      <h2 class="siadjak">SIADJAK</h2>
+      <p class="desc">Sistem Informasi Arsip Cabang Juanda</p>
+
+      <img src="https://cdn-icons-png.flaticon.com/512/2922/2922510.png" class="ilustrasi">
+    </div>
+
+    <!-- DATA ARSIP -->
+    <div id="arsip" class="page">
+      <h1>Data Arsip</h1>
+
+      <table>
+        <thead>
+          <tr>
+            <th>No</th>
+            <th>Proyek</th>
+            <th>Perusahaan</th>
+            <th>Lokal</th>
+            <th>Status</th>
+            <th>File</th>
+          </tr>
+        </thead>
+        <tbody id="arsipTable"></tbody>
+      </table>
+    </div>
+
+    <!-- FORM -->
+    <div id="tambah" class="page">
+      <h1>Form Tambah Arsip</h1>
+
+      <div class="form-card glass">
+        <input id="no" placeholder="Nomor Arsip">
+        <input id="proyek" placeholder="Nama Proyek">
+        <input id="perusahaan" placeholder="Perusahaan">
+        <input id="nominal" placeholder="Nominal Proyek">
+        <input id="jenis" placeholder="Jenis Arsip">
+        <input id="lokal" placeholder="Lokal Box Arsip">
+        <input type="file" id="file" accept="application/pdf">
+
+        <button onclick="tambahArsip()">Upload Arsip</button>
+      </div>
+    </div>
+
+    <!-- LAMAN -->
+    <div id="laman" class="page">
+      <h1>Laman Arsip</h1>
+      <div id="lamanData"></div>
+    </div>
+
+    <!-- PEMINJAMAN -->
+    <div id="peminjaman" class="page">
+      <h1>Peminjaman</h1>
+      <div id="pinjamData"></div>
+    </div>
+
+    <!-- PENGGUNA -->
+    <div id="pengguna" class="page">
+      <h1>Profil Arsip</h1>
+      <div id="userData"></div>
+    </div>
+
+  </div>
+</div>
+
+<!-- FIREBASE -->
+<script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-storage-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore-compat.js"></script>
+
+<script src="script.js"></script>
+</body>
+</html>
